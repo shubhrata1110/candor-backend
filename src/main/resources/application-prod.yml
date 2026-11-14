@@ -10,6 +10,16 @@ spring:
 server:
   # Trust X-Forwarded-* headers from the load balancer / reverse proxy.
   forward-headers-strategy: framework
+  servlet:
+    session:
+      cookie:
+        secure: true
+        http-only: true
+        same-site: lax
+
+app:
+  frontend-url: ${FRONTEND_URL:}
+  cookie-secure: true
 
 logging:
   level:
