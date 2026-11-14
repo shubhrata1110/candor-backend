@@ -1,5 +1,19 @@
-spring.application.name=candor-backend
+# Settings shared by every profile. Profile files (application-<profile>.yml) override these.
+spring:
+  application:
+    name: candor-backend
+  profiles:
+    # Local default; production sets SPRING_PROFILES_ACTIVE=prod, which overrides this.
+    active: dev
+  datasource:
+    driver-class-name: org.postgresql.Driver
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
 
-spring.datasource.url=${DB_URL:jdbc:postgresql://localhost:5433/candor}
-spring.datasource.username=${DB_USERNAME:candor}
-spring.datasource.password=${DB_PASSWORD:candor}
+server:
+  port: ${PORT:8080}
+  shutdown: graceful
+  error:
+    include-stacktrace: never
+    include-message: never

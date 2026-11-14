@@ -1,0 +1,15 @@
+# Local development: Postgres from docker-compose.yml (host port 5433).
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5433/candor
+    username: candor
+    password: candor
+
+server:
+  error:
+    include-message: always
+
+logging:
+  level:
+    com.example.candorbackend: DEBUG
+    org.springframework.security: DEBUG
