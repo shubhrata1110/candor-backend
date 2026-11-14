@@ -9,6 +9,10 @@ server:
   error:
     include-message: always
 
+app:
+  frontend-url: http://localhost:3000
+  cookie-secure: false
+
 logging:
   level:
     com.example.candorbackend: DEBUG
